@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>BMI</title>
+	   
+	
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<link href="https://fonts.googleapis.com/css2?family=Borel&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Borel&family=Gravitas+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Borel&family=Gravitas+One&family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body method="get" action="result.html">
+	<div class="header">
+		<h2>Body Mass Calculator</h2>
+		
+	</div>
+	<h1 align="center"><b>B</b>ody <b>M</b>ass <b>I</b>ndex</h1>
+	<div class="main">
+		<div class="result">
+		
+			
+
+		</div>
+		
+		<div class="input">
+			<label>Name</label><br>
+			<input type="text" id="name" name="name" placeholder="Enter your name" autocomplete="off"><br>
+
+			<i class="fa-solid fa-child"></i>
+			<label>Height(in cm)</label><br>
+			<input type="text" id="uyaram" name="height" placeholder="Enter your height" autocomplete="off"><br>
+				<i class="fa-brands fa-odysee"></i>
+			<label>Weight(in Kg)</label><br>
+			<input type="text" id="agalam" name="weight" placeholder="Enter your weight" autocomplete="off"><br>
+			<i class="fa-brands fa-pagelines"></i>	
+			<label>Age(in years)</label><br>
+			<input type="text" id="vayasu" name="age" placeholder="Enter your age" autocomplete="off"><br>
+			<label>Gender</label>
+				<input type="radio" name="Gender" value="Male">
+				<i class="fa-solid fa-mars"></i>
+				<label>Male</label>
+					<input type="radio" name="Gender" value="Female">
+				<i class="fa-solid fa-mars-and-venus"></i>
+				<label>Female</label><br>
+			
+			<button id="btn">Calculate</button>
+<button id="rtn">reset</button>
+			
+
+		</div>
+		
+
+
+	</div>
+	<script type="text/javascript">
+		       const button = document.getElementById('btn');
+		       button.addEventListener("click", ()=>{
+                     run();
+		       })
+	   function run() {
+	   	 const name = document.getElementById("name").value;
+	    const ou = name.length;
+	    const a = document.getElementById('uyaram').value/100;
+		const b = document.getElementById('agalam').value;
+		const c = a*a;
+		const d = b/c;
+		const k = d;
+		const e = document.getElementById("vayasu").value;
+		  const gen = document.getElementsByName('Gender');
+		  for (var i = 0; i < gen.length; i++) {
+		  	if (gen[i].checked)
+		  	 {
+		  	 	localStorage.setItem('gender',gen[i].value);
+		  	 }
+		  }
+
+
+
+		localStorage.setItem('height',a);
+		localStorage.setItem('weight',b);
+		localStorage.setItem('bmi',d);
+		localStorage.setItem('name',name);
+		localStorage.setItem('age',e);
+
+		
+		
+		
+		if (ou>0 && a>0 && b>0 && (e>=18 && e<=50))
+		 {
+		 	 window.open("result.html","blank");
+		 	  
+		 	document.getElementById('bmi').innerHTML = d;
+		document.getElementById('res').innerHTML = 'BMI';
+		}
+
+		 else
+		 {
+		 	alert("Please Enter your Details");
+		 }
+	   }
+	   const rutton = document.getElementById('rtn');
+		       rutton.addEventListener("click", ()=>{
+                     gun();
+		       })
+
+		       function gun() {
+		       	window.open("index.html")
+		       	localStorage.clear('gender');
+		       }
+
+
+	</script>
+
+	
+
+</body>
+</html>

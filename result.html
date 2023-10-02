@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Result</title>
+	
+	 <link rel="stylesheet" type="text/css" href="style.css">
+	 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+	<div class="output">
+		<img id="pro" src="" >
+		<div class="Result">
+				<h2 id="name"></h2><br>
+			<h2 id="height"></h2><br>
+			<h2 id="weight"></h2><br>
+			<h2 id="age"></h2><br>
+			<h2 id="BMI"></h2><br>
+			<h2 id="Gender"></h2><br>
+
+			
+<br><br><br><br><br><br><br><br><br><br><br><br>
+				<p><b>Disclaimer</b>:this images is based on anime  charcters age only representation not to Hurt others.</p>
+
+		</div>
+		<button id="ok">Download Report</button>
+		<div id="disclaimer">
+			<p><b>Disclaimer</b>:this images is based and only representation not to Hurt others. BMI is Calculation Of your Weight Divided by Squared Height</p>
+		</div>
+		
+	</div>
+<script type="text/javascript">
+	
+		const cqu = document.getElementById('ok')
+		cqu.addEventListener("click",()=>
+		{
+			
+		const alm =this.document.getElementsByClassName("output");
+		html2pdf().from(alm).save();
+
+
+		})
+	const a =localStorage.getItem('name');
+	const b =localStorage.getItem('height');
+	const c =localStorage.getItem('weight');
+	const d =localStorage.getItem('bmi');
+	const e =localStorage.getItem('age');
+	const f =localStorage.getItem('gender')
+
+
+   document.getElementById('name').innerHTML = "Name:"+ a ;
+   document.getElementById('height').innerHTML = "height:"+ b +"(in M)" ;
+   document.getElementById('weight').innerHTML = "weight:"+ c +"(in KG)";
+   document.getElementById('age').innerHTML = "Age:"+ e ;
+   document.getElementById('BMI').innerHTML = "BMI:"+ d ;
+   document.getElementById("Gender").innerHTML = "Gender:" + f;
+
+ if(f=="Male")
+ {
+ 	if (e>17 && e<25)
+ 	 {
+ 	  document.getElementById('pro').src = "naurto.jpg"
+ 	 }
+ 	 else if(e>24 && e<34)
+ 	 {
+ 	 	document.getElementById('pro').src = "minato.jpeg"
+     } 
+     else if(e>34 && e<44)
+ 	 {
+ 	 	document.getElementById('pro').src = "kakashi.jpeg"
+
+ 	 }
+ 	 else if(e>44)
+ 	 {
+ 	 	document.getElementById('pro').src = "jiraya.jpeg"
+
+ 	 }
+ }
+
+ else
+ {
+ 	if (e>17 && e<25)
+ 	 {
+ 	  document.getElementById('pro').src = "sakura.jpeg"
+ 	 }
+ 	 else if(e>24 && e<34)
+ 	 {
+ 	 	document.getElementById('pro').src = "shisui.jpeg"
+     } 
+     else if(e>34 && e<44)
+ 	 {
+ 	 	document.getElementById('pro').src = "kushina.jpeg"
+
+ 	 }
+ 	 else if(e>44)
+ 	 {
+ 	 	document.getElementById('pro').src = "tsunade.jpg"
+
+ 	 }
+ }
+
+
+
+   
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
